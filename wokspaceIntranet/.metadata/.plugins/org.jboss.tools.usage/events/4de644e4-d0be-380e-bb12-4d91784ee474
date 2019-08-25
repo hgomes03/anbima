@@ -1,0 +1,11 @@
+#Sun Aug 25 12:44:41 BRT 2019
+vl=How many times the 'Finish' button pressed during the day
+l=Wizard class name
+ct=jbt
+d=1566747881571
+c=0
+cmp=usage
+a=finishWizard
+cl=org.eclipse.mylyn.internal.tasks.ui.wizards.NewTaskWizardInternal
+v=2.2.202
+s=1

@@ -1,0 +1,91 @@
+package br.com.anbima.backend.infraestrutura;
+
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.tomcat.util.json.JSONParser;
+import org.springframework.context.annotation.Configuration;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+
+import br.com.anbima.backend.entity.Selic;
+
+@Configuration
+public class ConfigMemEstrutura {
+	
+	//Ano
+	private static Map<String, List<Selic>> mapAnoSelic = new HashMap<String, List<Selic>>();
+	
+	//Ano:Mes
+	private static Map<String, List<Selic>> mapAnoMesSelic = new HashMap<String, List<Selic>>();
+	
+	/**
+	*	Gerando uma estrutura para que o db funcione como
+	*   se existissem indices 
+	*   Ja que não existe requesito que pede para escrever no banco. 
+	*/
+	public void loadInit() {
+		
+		String path = "C:\\projetosAnbima\\workspaceApi\\ESTIMATIVA_SELIC.JSON";
+		
+		
+        //Cria o parse de tratamento
+        JSONParser parser = new JSONParser(new FileReader(new File(path)));
+		
+        
+        JsonArray jsonArray = (JsonArray) obj;
+		
+		jsonObject = (JSONObject) parser.parse(new FileReader(path));
+		
+		
+		Gson gson = new Gson();
+		List<Selic> selics = gson.fromJson(path, List.class);
+		
+		for (Selic selic:selics) {
+			
+			String ano = selic.getData().substring(0,3);
+			String mes = selic.getData().substring(5,7);
+			
+			configEstrutura(ano, selic);
+			configEstrutura(ano, mes, selic);
+		}
+	}
+	
+	private void configEstrutura(String ano, Selic selic) {
+		
+		List<Selic> selicsPorAno = mapAnoSelic.get(ano);
+		
+		if (selicsPorAno==null) {
+			selicsPorAno = new ArrayList<Selic>();
+			mapAnoSelic.put(ano, selicsPorAno);
+		}
+		
+		selicsPorAno.add(selic);
+	}
+	
+	private void configEstrutura(String ano, String mes, Selic selic) {
+		
+		String chave = ano + ":" + mes;
+		List<Selic> selicsPorAnoMes = mapAnoMesSelic.get(chave);
+		
+		if (selicsPorAnoMes==null) {
+			selicsPorAnoMes = new ArrayList<Selic>();
+			mapAnoMesSelic.put(chave, selicsPorAnoMes);
+		}
+		
+		selicsPorAnoMes.add(selic);
+	}
+
+	public static Map<String, List<Selic>> getMapAnoSelic() {
+		return mapAnoSelic;
+	}
+
+	public static Map<String, List<Selic>> getMapAnoMesSelic() {
+		return mapAnoMesSelic;
+	}
+}

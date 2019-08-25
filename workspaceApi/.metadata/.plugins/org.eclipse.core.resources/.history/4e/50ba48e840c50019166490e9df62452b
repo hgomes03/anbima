@@ -1,0 +1,12 @@
+package br.com.anbima.backend.service;
+
+import br.com.anbima.backend.entity.Selic;
+import br.com.anbima.backend.exception.ConstraintException;
+
+public interface SelicServico {
+	
+	void validate(String ano, String mes) throws ConstraintException; 
+	
+	List<Selic> findByData(String ano, String mes) throws ConstraintException;
+
+}

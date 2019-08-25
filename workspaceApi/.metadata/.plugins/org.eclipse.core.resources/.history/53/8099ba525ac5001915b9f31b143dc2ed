@@ -1,0 +1,8 @@
+package br.com.anbima.backend.representation.dto;
+
+public class MediaDTO implements ResourceDTO {
+	
+	private Integer ano;
+	private Double media;
+
+}

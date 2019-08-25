@@ -1,0 +1,48 @@
+package br.com.anbima.backend.controller;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import br.com.anbima.backend.enumeration.EnumValidacao;
+import br.com.anbima.backend.exception.NotFoundException;
+import br.com.anbima.backend.representation.dto.ResourceDTO;
+import br.com.anbima.backend.representation.dto.SelicDTO;
+import br.com.anbima.backend.service.SelicServico;
+
+@RestController
+@RestControllerAdvice
+@RequestMapping("v1/selic")
+public class SelicController {
+	
+	@Autowired 
+	private SelicServico selicServico;
+	
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value="/{data}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResourceDTO selic(@PathVariable String data) throws NotFoundException {
+		
+		SelicDTO dto = new SelicDTO();
+		
+		if (data!=null) {
+			
+			this.selicServico.validate(selic);
+			
+		}
+		
+		
+		
+	
+		return dto;
+	}
+	
+	
+
+}

@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>IntranetAnbimaEJB</groupId>
+  <artifactId>IntranetAnbimaEJB</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>ejb</packaging>
+  <dependencies>
+<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+<dependency>
+    <groupId>com.googlecode.json-simple</groupId>
+    <artifactId>json-simple</artifactId>
+    <version>1.1</version>
+</dependency>
+<dependency>
+   <groupId>org.json</groupId>
+   <artifactId>json</artifactId>
+   <version>20080701</version>
+</dependency>
+<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.5</version>
+		</dependency>
+  	</dependencies>
+  <build>
+    <sourceDirectory>ejbModule</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>ejbModule</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+    <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+ 
+
+ 9,034 VIEWS   
+0
+Re: java.lang.NoClassDefFoundError: org/json/simple/JSONValue inside map partition
+  
+ gmortiz17  Explorer
+Created ‎01-15-2015 07:55 PM
+Actually, It doesn't work anywhere. I had tested it working within the IDE now when I packaged it up and sent it to the node it did not work even outside the map partition. NVM must be a packaging error
+ 9,068 VIEWS  
+Already a User?
+Sign In
+Don't have an account?
+Register
+Coming from Hortonworks? Activate your account here
+RECOMMENDATIONS
+ Re: java.lang.NoClassDefFoundError: org/json/simpl...
+ Map Join Memory Sizing For LLAP  
+ Understanding Spark through Map Reduce  
+ select query inside hive not working
+ java.lang.NoClassDefFoundError using Hbase Storage...  
+ Is "Partitioned By" compatible within the context ...  
+ Create Dynamic Partitions based on FlowFile Conten...    
+ ANALYZE table COMPUTE STATISTICS for COLUMNS fail...
+ How parallel processing works in NiFi/HDF....it pr...  
+ Caused by: java.lang.NoClassDefFoundError: org/apa...
+My Cloudera Home
+CommunityDocumentationKnowledge BasePartnersSupport
+PRODUCTS
+Data Science Workbench
+SDX Technologies
+Enterprise Data Hub
+Analytic DB
+Operational DB
+Data Engineering
+Altus Cloud PaaS
+SOLUTIONS
+Drive Customer Insights
+Connect Products & Services (IoT)
+Protect Your Business
+Industry Solutions
+Solutions Gallery
+DOWNLOADS
+QuickStart VMs
+Cloudera Manager
+Cloudera Director
+MORE
+About
+News & Blogs
+Investor Relations
+Events
+Customers
+Careers
+Security
+Community Guidelines
+Community FAQs
+
+  
+Contact Us
+United States: +1 888 789 1488
+Outside the US: +1 650 362 0488
+© 2019 Cloudera, Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy and Data PolicySupported Browsers Policy
+Apache Hadoop and associated open source project names are trademarks of the Apache Software Foundation. For a complete list of trademarks, click here.
+Cloudera uses cookies to provide and improve our sites services.
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-ejb-plugin</artifactId>
+        <version>3.0.1</version>
+        <configuration>
+          <ejbVersion>3.2</ejbVersion>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

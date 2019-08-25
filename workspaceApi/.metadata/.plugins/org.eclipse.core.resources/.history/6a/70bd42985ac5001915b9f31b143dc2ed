@@ -1,0 +1,20 @@
+package br.com.anbima.backend.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import br.com.anbima.backend.entity.Selic;
+import br.com.anbima.backend.exception.ConstraintException;
+import br.com.anbima.backend.representation.dto.MediaDTO;
+
+@Service
+public interface SelicServico {
+	
+	void validate(String ano, String mes) throws ConstraintException; 
+	
+	List<Selic> findByData(String ano, String mes) throws ConstraintException;
+	
+	MediaDTO calcularMedia(List<Selic> taxasPorAno) throws ConstraintException;
+
+}

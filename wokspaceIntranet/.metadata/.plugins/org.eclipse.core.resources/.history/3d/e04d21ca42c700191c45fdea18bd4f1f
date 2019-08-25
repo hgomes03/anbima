@@ -1,0 +1,62 @@
+package br.com.anbima.intranet.bean;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import br.com.anbima.entities.Selic;
+import br.com.anbima.servico.ServicoSelicLocal;
+
+@ManagedBean
+@javax.faces.view.ViewScoped
+public class SelicMB {
+	
+	private boolean exibirFiltroHistorico;
+	
+	private List<Selic> selicis;
+	
+	@EJB
+	private ServicoSelicLocal servico;
+	
+	@PostConstruct
+	public void init() {
+		
+		loadHistorico();
+	
+	}
+	
+	public void loadHistorico() {
+		
+		System.out.println("historico");
+		
+		try {
+			
+			this.selicis = this.servico.getAll();
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+	public boolean isExibirFiltroHistorico() {
+		return exibirFiltroHistorico;
+	}
+
+	public void setExibirFiltroHistorico(boolean exibirFiltroHistorico) {
+		this.exibirFiltroHistorico = exibirFiltroHistorico;
+	}
+
+	public List<Selic> getSelicis() {
+		return selicis;
+	}
+
+	public void setSelicis(List<Selic> selicis) {
+		this.selicis = selicis;
+	}
+	
+	
+}

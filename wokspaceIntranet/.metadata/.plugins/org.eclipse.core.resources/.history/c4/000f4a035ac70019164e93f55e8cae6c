@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<head></head>
+	<ui:composition template="/template/main.xhtml">
+		<ui:define name="conteudo">
+				
+			<p:dataTable var="selic" value="#{selicMB.selicis}">
+				<p:row>
+					<p:column headerText="Data"><h:outputText value="#{selic.data}"/></p:column>
+					<p:column>.<h:outputText value="#{selic.taxa}"/></p:column>
+				</p:row>
+			</p:dataTable>	
+			
+		</ui:define>
+	</ui:composition>
+</html>

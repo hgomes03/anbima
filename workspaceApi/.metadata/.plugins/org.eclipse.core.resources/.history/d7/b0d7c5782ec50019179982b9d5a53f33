@@ -1,0 +1,8 @@
+package br.com.anbima.backend.representation.dto;
+
+public class SelicDTO implements ResourceDTO {
+	
+	private String data;
+	private String taxa;
+
+}

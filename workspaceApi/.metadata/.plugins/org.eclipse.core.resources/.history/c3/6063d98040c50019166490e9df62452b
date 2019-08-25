@@ -1,0 +1,24 @@
+package br.com.anbima.backend.enumeration;
+
+public enum EnumValidacao {
+	
+	DATA_NAO_ENCONTRADA(1l, "Data não encontrada !"),
+	ANO_INVALIDO(2l, "Ano invalido !");
+	
+	private Long codigo;
+	
+	private String mensagem;
+	
+	private EnumValidacao(Long codigo, String mensagem) {
+		this.codigo = codigo;
+		this.mensagem = mensagem;
+	}
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+}

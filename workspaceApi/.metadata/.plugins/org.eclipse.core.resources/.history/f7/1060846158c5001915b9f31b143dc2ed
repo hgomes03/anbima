@@ -1,0 +1,38 @@
+package br.com.anbima.backend.service.impl;
+
+import java.util.List;
+import java.util.regex.Pattern;
+
+import org.springframework.stereotype.Component;
+
+import br.com.anbima.backend.entity.Selic;
+import br.com.anbima.backend.enumeration.EnumValidacao;
+import br.com.anbima.backend.exception.ConstraintException;
+import br.com.anbima.backend.service.SelicServico;
+
+@Component
+public class SelicServicoImpl implements SelicServico {
+
+	private static Pattern expressaoAno = Pattern.compile("\\d{4}");
+	private static Pattern expressaoMes = Pattern.compile("\\d{2}");
+	
+	public void validate(String ano, String mes) throws ConstraintException {
+			
+		if (ano==null || !expressaoAno.matcher(ano).matches()) { 
+			throw new ConstraintException(EnumValidacao.ANO_INVALIDO.getMensagem());
+		} 
+		
+		if (mes!=null) {
+			if (!expressaoMes.matcher(mes).matches()) {
+				throw new ConstraintException(EnumValidacao.ANO_INVALIDO.getMensagem());
+			}
+		}
+	}
+
+	@Override
+	public List<Selic> findByData(String ano, String mes) throws ConstraintException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

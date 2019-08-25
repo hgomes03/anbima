@@ -1,0 +1,9 @@
+INDEX VERSION 1.131+C:\projetosAnbima\wokspaceIntranet\.metadata\.plugins\org.eclipse.jdt.core
+3096323673.index
+2388543970.index
+2490288099.index
+754137138.index
+680026328.index
+3528295703.index
+3437085717.index
+2656618331.index

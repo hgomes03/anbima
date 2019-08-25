@@ -1,0 +1,49 @@
+package br.com.anbima.util;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
+public class ConfigConexao {
+	
+	private static ConfigConexao instance;
+	
+	private ConfigConexao() {
+		
+	}
+	
+	public static ConfigConexao getInstance() {
+		
+		if (instance==null) {
+			instance = new ConfigConexao();
+		}
+		
+		return instance;
+	}
+	
+	public JSONArray loadDB() throws ParseException, FileNotFoundException, IOException {
+		
+		
+		JSONArray jsonObject = null;
+		
+		try {
+			String path = "C:\\projetosAnbima\\wokspaceIntranet\\IntranetAnbimaWeb\\ESTIMATIVA_SELIC.JSON";
+			JSONParser parser = new JSONParser();	
+			
+			
+			jsonObject = (JSONArray) parser.parse(new FileReader(path));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return jsonObject;
+	}
+
+}

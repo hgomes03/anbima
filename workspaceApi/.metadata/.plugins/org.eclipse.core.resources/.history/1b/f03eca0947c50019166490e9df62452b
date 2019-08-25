@@ -1,0 +1,23 @@
+package br.com.anbima.backend.repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.anbima.backend.entity.Selic;
+import br.com.anbima.backend.infraestrutura.ConfigMemEstrutura;
+
+public class SelicRepository {
+	
+	@Autowired
+	private ConfigMemEstrutura configDB;
+	
+	public Selic findByAno(String ano) {
+
+		Selic selic = configDB.getMapSelic().get(data);
+		
+		if (selic!=null) {
+			return selic;
+		} else {
+			return new Selic();
+		}
+	}
+}

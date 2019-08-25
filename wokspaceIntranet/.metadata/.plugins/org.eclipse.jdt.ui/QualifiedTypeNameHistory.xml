@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.faces.view.ViewScoped"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
+<fullyQualifiedTypeName name="javax.annotation.ManagedBean"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
+<fullyQualifiedTypeName name="br.com.anbima.dao.SelicDao"/>
+<fullyQualifiedTypeName name="org.apache.wink.json4j.JSONArray"/>
+<fullyQualifiedTypeName name="java.text.ParseException"/>
+<fullyQualifiedTypeName name="org.apache.wink.json4j.JSONObject"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+</qualifiedTypeNameHistroy>

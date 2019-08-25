@@ -1,0 +1,23 @@
+package br.com.cardicas.backend.enumeration;
+
+public enum EnumValidacao {
+	
+	VALIDACAO_CPF(1l, "Cpf invalido !");
+	
+	private Long codigo;
+	
+	private String mensagem;
+	
+	private EnumValidacao(Long codigo, String mensagem) {
+		this.codigo = codigo;
+		this.mensagem = mensagem;
+	}
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+}

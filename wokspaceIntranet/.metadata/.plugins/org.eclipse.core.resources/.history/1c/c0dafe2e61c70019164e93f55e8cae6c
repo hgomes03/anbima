@@ -1,0 +1,42 @@
+package br.com.anbima.util;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.text.ParseException;
+import java.util.List;
+
+import org.jboss.dmr.JSONParser;
+import org.json.simple.JSONArray;
+
+
+public class ConfigConexao {
+	
+	
+	public ConfigConexao() {
+		
+	}
+	
+	
+	
+	public JSONArray loadDB() throws ParseException, FileNotFoundException, IOException {
+		
+		Gson gson = new Gson();
+		
+		String path = "C:\\projetosAnbima\\workspaceApi\\ESTIMATIVA_SELIC.JSON";
+		
+		File file = new File(path);
+		
+		Reader reader = new FileReader(file);
+		
+	    System.out.println(gson.fromJson(reader, List.class));
+		
+		
+	
+		
+		return;
+	}
+
+}

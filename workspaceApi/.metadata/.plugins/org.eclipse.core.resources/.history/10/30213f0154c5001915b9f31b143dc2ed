@@ -1,0 +1,54 @@
+package br.com.anbima.backend.entity;
+
+public class Selic {
+	
+	private String data;
+	private double estimativaTaxa;
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) {
+		this.data = data;
+	}
+	public double getEstimativaTaxa() {
+		return estimativaTaxa;
+	}
+	public void setEstimativaTaxa(double estimativaTaxa) {
+		this.estimativaTaxa = estimativaTaxa;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(estimativaTaxa);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Selic other = (Selic) obj;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		if (Double.doubleToLongBits(estimativaTaxa) != Double.doubleToLongBits(other.estimativaTaxa))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Selic [data=" + data + ", estimativaTaxa=" + estimativaTaxa + "]";
+	}
+	
+		
+}

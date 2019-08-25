@@ -1,0 +1,11 @@
+package br.com.anbima.backend.repository;
+
+public class SelicRepository {
+	
+	
+	public Selic findByData(String data) {
+		
+	}
+	
+
+}

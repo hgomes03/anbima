@@ -1,0 +1,32 @@
+package br.com.anbima.backend.service.impl;
+
+import java.text.SimpleDateFormat;
+
+import br.com.anbima.backend.entity.Selic;
+import br.com.anbima.backend.enumeration.EnumValidacao;
+import br.com.anbima.backend.exception.ConstraintException;
+import br.com.anbima.backend.service.SelicServico;
+
+public class SelicServicoImpl implements SelicServico {
+
+	private SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+	
+	public void validate(String ano, String mes) throws ConstraintException {
+		
+	
+		
+		try {
+			
+			
+			
+		} catch (Exception e) {
+			throw new ConstraintException(EnumValidacao.DATA_INVALIDA.getMensagem());
+		}
+	}
+
+	public Selic findByData(String data) throws ConstraintException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

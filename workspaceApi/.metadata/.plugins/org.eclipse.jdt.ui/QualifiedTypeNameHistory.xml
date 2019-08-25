@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="br.com.anbima.backend.entity.Selic"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="br.com.anbima.backend.repository.SelicRepository"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="br.com.anbima.backend.exception.ConstraintException"/>
+<fullyQualifiedTypeName name="br.com.anbima.backend.representation.dto.MediaDTO"/>
+<fullyQualifiedTypeName name="br.com.anbima.backend.representation.dto.ResourceDTO"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,63 @@
+package br.com.anbima.backend.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import br.com.anbima.backend.entity.Selic;
+import br.com.anbima.backend.enumeration.EnumValidacao;
+import br.com.anbima.backend.exception.ConstraintException;
+import br.com.anbima.backend.repository.SelicRepository;
+import br.com.anbima.backend.representation.dto.MediaDTO;
+import br.com.anbima.backend.service.SelicServico;
+
+@Component
+public class SelicServicoImpl implements SelicServico {
+
+	private static Pattern expressaoAno = Pattern.compile("\\d{4}");
+	private static Pattern expressaoMes = Pattern.compile("\\d{2}");
+	
+	@Autowired
+	private SelicRepository selicRepository;
+	
+	public void validate(String ano, String mes) throws ConstraintException {
+			
+		if (ano==null || !expressaoAno.matcher(ano).matches()) { 
+			throw new ConstraintException(EnumValidacao.ANO_INVALIDO.getMensagem());
+		} 
+		
+		if (mes!=null) {
+			if (!expressaoMes.matcher(mes).matches()) {
+				throw new ConstraintException(EnumValidacao.ANO_INVALIDO.getMensagem());
+			}
+		}
+	}
+
+	@Override
+	public List<Selic> findByData(String ano, String mes) throws ConstraintException {
+
+		List<Selic> selics = new ArrayList<Selic>();
+		
+		if (ano!=null && mes!=null) {
+			selics.addAll(selicRepository.findByAnoMes(ano, mes));
+		} else {
+			selics.addAll(selicRepository.findByAno(ano));
+		}
+		
+		return selics;
+	}
+
+	@Override
+	public MediaDTO calcularMedia(Integer ano, List<Selic> taxasPorAno) throws ConstraintException {
+		
+		
+		
+		return null;
+	}
+	
+	
+	
+}

@@ -1,0 +1,30 @@
+package br.com.anbima.backend.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestController
+@RestControllerAdvice
+@RequestMapping("v1/selic")
+public class SelicController {
+	
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value="/{data}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResourceDTO marca(@PathVariable Long codigo) throws NotFoundException {
+		
+		Marca marca = marcaServico.findByCodigo(codigo);
+		
+		if (marca == null) {
+			throw new NotFoundException(EnumValidacao.MARCA_NAO_ENCONTRADA.getMensagem());
+		}
+		
+		ModelMapper modelMapper = new ModelMapper();
+		MarcaDTO dto = modelMapper.map(marca, MarcaDTO.class);
+	
+		return dto;
+	}
+	
+	
+
+}

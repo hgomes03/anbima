@@ -1,0 +1,39 @@
+package br.com.cardicas.backend.enumeration;
+
+public enum EnumValidacao {
+	
+	VALIDACAO_CPF(1l, "Cpf invalido !"),
+	CLIENTE_NAO_ENCONTRADO(2l, "Cliente não encontrado !"),
+	CLIENTE_NAO_IDENTIFICADO(3l, "Cliente não identificado !"),
+	CATEGORIA_NAO_ENCONTRADA(4l, "Categoria não encontrada !"),
+	CLIENTE_VAZIO(5l, "Cliente não foi passado !"),
+	MARCA_NAO_ENCONTRADA(6l, "Marca não encontrada !"),
+	LOJISTA_VAZIO(7l, "Lojista não foi passado !"),
+	LOJISTA_NAO_ENCONTRADO(8l, "Lojistao não encontrado !"),
+	LOJISTA_NAO_IDENTIFICADO(9l, "Lojista não identificado !"),
+	MODELO_NAO_ENCONTRADO(10l, "Modelo não encontrado !"),
+	VEICULO_NAO_ENCONTRADO(11l, "Veiculo não encontrado !"),
+	PRODUTO_VAZIO(12l, "Produto não encontrado !"),
+	PRODUTO_NAO_IDENTIFICADO(13l, "Produto não identificado !"),
+	PEDIDO_NAO_CRIADO(14l, "Pedido não foi criado !"),
+	CLIENTE_INVALIDO_PARA_O_PEDIDO(15l, "Cliente inválido para o pedido !"),
+	LOJISTA_INVALIDO_PARA_O_PEDIDO(16l, "Lojista inválido para o pedido !"),
+	PRODUTO_INVALIDO_PARA_O_PEDIDO(17l, "Produto inválido para o pedido !");
+	
+	private Long codigo;
+	
+	private String mensagem;
+	
+	private EnumValidacao(Long codigo, String mensagem) {
+		this.codigo = codigo;
+		this.mensagem = mensagem;
+	}
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+}

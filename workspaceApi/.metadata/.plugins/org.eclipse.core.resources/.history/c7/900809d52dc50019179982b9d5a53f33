@@ -1,0 +1,9 @@
+package br.com.anbima.backend.service;
+
+import br.com.anbima.backend.entity.Selic;
+
+public interface SelicServico {
+	
+	void validate(Selic selic) throws ConstraintException; 
+
+}

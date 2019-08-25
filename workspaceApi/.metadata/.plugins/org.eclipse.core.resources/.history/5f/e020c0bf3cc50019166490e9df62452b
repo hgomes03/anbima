@@ -1,0 +1,8 @@
+package br.com.anbima.backend.entity;
+
+public class Selic {
+	
+	private String data;
+	private String taxa;
+
+}
